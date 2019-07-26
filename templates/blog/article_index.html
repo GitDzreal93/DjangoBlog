@@ -19,6 +19,11 @@
 {% block content %}
     <div id="primary" class="site-content">
         <div id="content" role="main">
+
+	        <div style="border: solid lightgray 1px; margin-bottom: 40px" >
+		        {% include 'share_layout/banner.html' %}
+	        </div>
+
             {% if page_type and tag_name %}
                 <header class="archive-header">
 

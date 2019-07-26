@@ -98,10 +98,10 @@ WSGI_APPLICATION = 'DjangoBlog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'djangoblog',
-        'USER': os.environ.get('DJANGO_MYSQL_USER'),
-        'PASSWORD': os.environ.get('DJANGO_MYSQL_PASSWORD'),
-        'HOST': os.environ.get('DJANGO_MYSQL_HOST'),
+        'NAME': 'catblog',
+        'USER': 'catblog',
+        'PASSWORD': 'hdz2b',
+        'HOST': '127.0.0.1',
         'PORT': 3306,
         'OPTIONS': {'charset': 'utf8mb4'},
     }
@@ -175,13 +175,18 @@ PAGINATE_BY = 10
 CACHE_CONTROL_MAX_AGE = 2592000
 # cache setting
 CACHES = {
+    # 'default': {
+    #     'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+    #     'LOCATION': '127.0.0.1:11211',
+    #     'KEY_PREFIX': 'django_test' if TESTING else 'djangoblog',
+    #     'TIMEOUT': 60 * 60 * 10
+    # },
+    # 'locmemcache': {
+    #     'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    #     'TIMEOUT': 10800,
+    #     'LOCATION': 'unique-snowflake',
+    # },
     'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': '127.0.0.1:11211',
-        'KEY_PREFIX': 'django_test' if TESTING else 'djangoblog',
-        'TIMEOUT': 60 * 60 * 10
-    },
-    'locmemcache': {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
         'TIMEOUT': 10800,
         'LOCATION': 'unique-snowflake',
@@ -191,22 +196,23 @@ CACHES = {
 SITE_ID = 1
 BAIDU_NOTIFY_URL = "http://data.zz.baidu.com/urls?site=https://www.lylinux.net&token=1uAOGrMsUm5syDGn"
 
-# Emial:
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
-# EMAIL_USE_TLS = True
-EMAIL_USE_SSL = True
-
-EMAIL_HOST = 'smtp.mxhichina.com'
-EMAIL_PORT = 465
-EMAIL_HOST_USER = os.environ.get('DJANGO_EMAIL_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('DJANGO_EMAIL_PASSWORD')
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-SERVER_EMAIL = os.environ.get('DJANGO_EMAIL_USER')
+# # Emial:
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#
+# # EMAIL_USE_TLS = True
+# EMAIL_USE_SSL = True
+#
+# EMAIL_HOST = 'smtp.mxhichina.com'
+# EMAIL_PORT = 465
+# EMAIL_HOST_USER = os.environ.get('DJANGO_EMAIL_USER')
+# EMAIL_HOST_PASSWORD = os.environ.get('DJANGO_EMAIL_PASSWORD')
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+# SERVER_EMAIL = os.environ.get('DJANGO_EMAIL_USER')
 # Setting debug=false did NOT handle except email notifications
+
 ADMINS = [('admin', 'admin@admin.com')]
 # WX ADMIN password(Two times md5)
-WXADMIN = '995F03AC401D6CABABAEF756FC4D43C7'
+# WXADMIN = '995F03AC401D6CABABAEF756FC4D43C7'
 
 LOGGING = {
     'version': 1,
@@ -287,3 +293,4 @@ COMPRESS_JS_FILTERS = [
 
 MEDIA_ROOT = os.path.join(SITE_ROOT, 'uploads')
 MEDIA_URL = '/media/'
+UPLOAD_ARTICLES_ROOT = os.path.join(MEDIA_ROOT, 'articles')
