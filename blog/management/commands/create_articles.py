@@ -59,7 +59,7 @@ class Command(BaseCommand):
                     continue
                 with open(article_filepath, 'r', encoding='utf-8') as fp:
                     body = fp.read()
-                    user = get_user_model().objects.get_or_create(email='dzreal_93@126.com', username='文小蕾',
+                    user = get_user_model().objects.get_or_create(email='dzreal_93@126.com', username='Editor',
                                                                   password='test!q@w#eTYU')[0]
                     category = Category.objects.get_or_create(name=category_name, parent_category=None)[0]
                     category.save()
