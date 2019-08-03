@@ -83,8 +83,11 @@
                 {% include 'comments/tags/post_comment.html' %}
             {% else %}
                 <div class="comments-area">
-                    <h3 class="comment-meta">您还没有登录，请您<a
-                            href="{% url "account:login" %}?next={{ request.get_full_path }}" rel="nofollow">登录</a>后发表评论。
+{#                    <h3 class="comment-meta">您还没有登录，请您<a#}
+                    <h3 class="comment-meta">Aún no has iniciado sesión, por favor<a
+{#                            href="{% url "account:login" %}?next={{ request.get_full_path }}" rel="nofollow">登录</a>后发表评论。#}
+                            href="{% url "account:login" %}?next={{ request.get_full_path }}" rel="nofollow">Aterrizaje</a>
+	                    Deja un comentario.
                     </h3>
 
                     {% load oauth_tags %}

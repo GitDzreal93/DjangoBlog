@@ -18,9 +18,11 @@
                    rel="nofollow">
                     <span class="leave-reply">
                     {% if article.comment and article.comment_set.count %}
-                        {{ article.comment_set.count }}个评论
+{#                        {{ article.comment_set.count }}个评论#}
+                        {{ article.comment_set.count }}Comentarios
                     {% else %}
-                        发表评论
+{#                        发表评论#}
+	                    Deja un comentario
                     {% endif %}
                     </span>
                 </a>
